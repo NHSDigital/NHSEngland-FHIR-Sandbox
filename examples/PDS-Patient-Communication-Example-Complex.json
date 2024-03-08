@@ -1,5 +1,5 @@
 {
-	"resourceType": "Patient",
+	"resourceType": "Patient", 
 	"id": "UKCore-Patient-Sn-MultipleLanguages-Example",
 	"meta": {
 		"profile": [
