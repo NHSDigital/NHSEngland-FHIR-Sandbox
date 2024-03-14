@@ -1,6 +1,6 @@
 {
 	"resourceType": "Patient",
-	"id": "England-Patient-Sn-MultipleLanguages-Example-Simple",
+	"id": "England-Patient-Example-minimal",
 	"meta": {
 		"profile": [
 			"https://fhir.nhs.uk/England/StructureDefinition/England-Patient-PDS"
