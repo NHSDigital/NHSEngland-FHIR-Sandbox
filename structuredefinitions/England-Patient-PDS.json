@@ -33,6 +33,30 @@
   "differential": {
     "element": [
       {
+        "id": "Patient.extension:deathNotificationStatus",
+        "path": "Patient.extension",
+        "sliceName": "deathNotificationStatus"
+      },
+      {
+        "id": "Patient.extension:deathNotificationStatus.extension",
+        "path": "Patient.extension.extension",
+        "min": 1
+      },
+      {
+        "id": "Patient.extension:interpreterRequired",
+        "path": "Patient.extension",
+        "sliceName": "interpreterRequired",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/patient-interpreterRequired"
+            ]
+          }
+        ],
+        "isModifier": false
+      },
+      {
         "id": "Patient.name",
         "path": "Patient.name",
         "min": 1
@@ -51,6 +75,21 @@
         "id": "Patient.address",
         "path": "Patient.address",
         "min": 1
+      },
+      {
+        "id": "Patient.address.extension:addressKey",
+        "path": "Patient.address.extension",
+        "sliceName": "addressKey"
+      },
+      {
+        "id": "Patient.address.extension:addressKey.extension",
+        "path": "Patient.address.extension.extension",
+        "min": 2
+      },
+      {
+        "id": "Patient.managingOrganization",
+        "path": "Patient.managingOrganization",
+        "mustSupport": true
       }
     ]
   }
