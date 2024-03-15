@@ -43,18 +43,10 @@
         "min": 1
       },
       {
-        "id": "Patient.extension:interpreterRequired",
+        "id": "Patient.extension:patientInterpreterRequired",
         "path": "Patient.extension",
-        "sliceName": "interpreterRequired",
-        "type": [
-          {
-            "code": "Extension",
-            "profile": [
-              "http://hl7.org/fhir/StructureDefinition/patient-interpreterRequired"
-            ]
-          }
-        ],
-        "isModifier": false
+        "sliceName": "patientInterpreterRequired",
+        "definition": "This Patient requires an interpreter to communicate healthcare information to the practitioner. This is to be used in conjunction with the Patient.communication.language element"
       },
       {
         "id": "Patient.name",
