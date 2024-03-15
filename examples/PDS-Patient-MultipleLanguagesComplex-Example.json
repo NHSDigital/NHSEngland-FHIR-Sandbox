@@ -1,6 +1,6 @@
 {
 	"resourceType": "Patient",
-	"id": "UKCore-Patient-Sn-MultipleLanguages-Example-Complex",
+	"id": "PDS-Patient-MultipleLanguagesComplex-Example",
 	"meta": {
 		"profile": [
 			"https://fhir.nhs.uk/England/StructureDefinition/England-Patient-PDS"
