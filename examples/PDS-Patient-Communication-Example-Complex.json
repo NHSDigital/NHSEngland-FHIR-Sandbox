@@ -9,10 +9,23 @@
 	"name": [
 		{
 			"use": "official",
-			"family": "JONES",
+			"family": "Einstein",
 			"given": [
-				"Jason"
+				"Albert"
 			]
+		}
+	],
+	"gender": "male",
+	"birthDate": "1879-03-14",
+	"address": [
+		{
+			"use": "home",
+			"line": [
+				"35 Market St",
+				"Kirkby Stephen",
+				"Cumbria"
+			],
+			"postalCode": "CA17 4QN"
 		}
 	],
 	"communication": [
@@ -70,11 +83,12 @@
 				"coding": [
 					{
 						"system": "urn:ietf:bcp:47",
-						"code": "fr",
-						"display": "French"
+						"code": "de",
+						"display": "German"
 					}
 				]
-			}
+			},
+			"preferred": true
 		}
 	]
 }
