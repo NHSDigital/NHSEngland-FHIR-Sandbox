@@ -1,6 +1,6 @@
 {
   "resourceType": "StructureDefinition",
-  "id": "England-Patient-PDS",
+  "id": "England-Patient-PDS-allMandatoryFields",
   "url": "https://fhir.nhs.uk/England/StructureDefinition/England-Patient-PDS",
   "version": "0.0.1",
   "name": "EnglandPatientPDS",
