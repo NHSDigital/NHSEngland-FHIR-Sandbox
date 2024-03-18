@@ -24,8 +24,7 @@
       "coding": [
         {
           "system": "urn:iso:std:iso:3166",
-          "code": "GB-ENG",
-          "display": "England"
+          "code": "GB"
         }
       ]
     }
@@ -70,50 +69,7 @@
             }
           ],
           "searchParam": [
-            {
-              "extension": [
-                {
-                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
-                  "valueCode": "MAY"
-                }
-              ],
-              "name": "_fuzzy-match",
-              "type": "string",
-              "documentation": "PDS using non standard parameter"
-            },
-            {
-              "extension": [
-                {
-                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
-                  "valueCode": "MAY"
-                }
-              ],
-              "name": "_exact-match",
-              "type": "string",
-              "documentation": "PDS is using non standard parameter. Do not believe this is :exact from [modifiers](https://www.hl7.org/fhir/r4/search.html#modifiers) although it sounds similar and may cause confusion"
-            },
-            {
-              "extension": [
-                {
-                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
-                  "valueCode": "MAY"
-                }
-              ],
-              "name": "_history",
-              "type": "string",
-              "documentation": "PDS is using non standard parameter. Do not believe this is _history from [history](https://www.hl7.org/fhir/r4/http.html#history) this probably results in confusion for developers"
-            },
-            {
-              "extension": [
-                {
-                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
-                  "valueCode": "MAY"
-                }
-              ],
-              "name": "_max-results",
-              "type": "string",
-              "documentation": "PDS is using non standard parameter. PDS probably should be using _count [_count](https://www.hl7.org/fhir/r4/search.html#count) which should be ok as PDS does not support paging"
-            },
+          
             {
               "extension": [
                 {
@@ -184,17 +140,6 @@
               ],
               "name": "address-postalcode",
               "type": "string"
-            },
-            {
-              "extension": [
-                {
-                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
-                  "valueCode": "MAY"
-                }
-              ],
-              "name": "address-postcode",
-              "type": "string",
-              "documentation": "PDS is using non standard parameter - **will be deprecated in the future**"
             },
             {
               "extension": [
