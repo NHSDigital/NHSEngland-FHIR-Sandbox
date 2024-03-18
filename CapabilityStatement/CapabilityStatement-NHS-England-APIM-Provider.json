@@ -1,0 +1,284 @@
+{
+  "resourceType": "CapabilityStatement",
+  "id": "NHS-England-APIM-Provider",
+  "url": "https://fhir.nhs.uk/England/CapabilityStatement/NHS-England-APIM-Provider",
+  "version": "0.0.1",
+  "title": "NHS England APIM Base API Definitions",
+  "status": "draft",
+  "date": "2024-01-30",
+  "publisher": "NHS England",
+  "contact": [
+    {
+      "name": "NHS England",
+      "telecom": [
+        {
+          "system": "url",
+          "value": "https://www.england.nhs.uk/"
+        }
+      ]
+    }
+  ],
+  "description": "High level summary of FHIR api's used within NHS England API programmes",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "GB-ENG",
+          "display": "England"
+        }
+      ]
+    }
+  ],
+  "kind": "requirements",
+  "fhirVersion": "4.0.1",
+  "format": [
+    "json"
+  ],
+  "rest": [
+    {
+      "mode": "server",
+      "resource": [
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+              "valueCode": "MAY"
+            }
+          ],
+          "type": "Patient",
+          "profile": "https://fhir.nhs.uk/England/StructureDefinition/England-Patient-PDS",
+          "documentation": "API present in: \n - [Personal Demographics Service FHIR API](https://digital.nhs.uk/developer/api-catalogue/personal-demographics-service-fhir) \n\n Used by \n\n - EPS consumers. \n\n SHOULD and SHALL conformance is taken from [UK Core FHIR Access](https://build.fhir.org/ig/HL7-UK/UK-Core-Access/index.html) - MAY is used to indicate no conformance (added due to rendering issue in the publisher)",
+          "interaction": [
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "valueCode": "SHOULD"
+                }
+              ],
+              "code": "read"
+            },
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "valueCode": "SHOULD"
+                }
+              ],
+              "code": "search-type"
+            }
+          ],
+          "searchParam": [
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "valueCode": "MAY"
+                }
+              ],
+              "name": "_fuzzy-match",
+              "type": "string",
+              "documentation": "PDS using non standard parameter"
+            },
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "valueCode": "MAY"
+                }
+              ],
+              "name": "_exact-match",
+              "type": "string",
+              "documentation": "PDS is using non standard parameter. Do not believe this is :exact from [modifiers](https://www.hl7.org/fhir/r4/search.html#modifiers) although it sounds similar and may cause confusion"
+            },
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "valueCode": "MAY"
+                }
+              ],
+              "name": "_history",
+              "type": "string",
+              "documentation": "PDS is using non standard parameter. Do not believe this is _history from [history](https://www.hl7.org/fhir/r4/http.html#history) this probably results in confusion for developers"
+            },
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "valueCode": "MAY"
+                }
+              ],
+              "name": "_max-results",
+              "type": "string",
+              "documentation": "PDS is using non standard parameter. PDS probably should be using _count [_count](https://www.hl7.org/fhir/r4/search.html#count) which should be ok as PDS does not support paging"
+            },
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "valueCode": "SHALL"
+                }
+              ],
+              "name": "identifier",
+              "type": "token",
+              "documentation": "A search by NHS Number. Missing from PDS is a read operation instead - so using transient id instead of identifier"
+            },
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "valueCode": "SHOULD"
+                }
+              ],
+              "name": "family",
+              "type": "string"
+            },
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "valueCode": "SHALL"
+                }
+              ],
+              "name": "given",
+              "type": "string"
+            },
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "valueCode": "SHOULD"
+                }
+              ],
+              "name": "gender",
+              "type": "string"
+            },
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "valueCode": "SHOULD"
+                }
+              ],
+              "name": "birthdate",
+              "type": "date"
+            },
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "valueCode": "MAY"
+                }
+              ],
+              "name": "death-date",
+              "type": "date"
+            },
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "valueCode": "MAY"
+                }
+              ],
+              "name": "address-postalcode",
+              "type": "string"
+            },
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "valueCode": "MAY"
+                }
+              ],
+              "name": "address-postcode",
+              "type": "string",
+              "documentation": "PDS is using non standard parameter - **will be deprecated in the future**"
+            },
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "valueCode": "MAY"
+                }
+              ],
+              "name": "general-practitioner",
+              "type": "reference",
+              "documentation": "A search by ODS Code. PDS SHOULD be using `general-practitioner:identifier` with `token` type to follow NHS Digital FHIR policy. It is workable as it is but this is searching on an `id` which is transient (changeable), searching on `identifier` is recommended."
+            },
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "valueCode": "MAY"
+                }
+              ],
+              "name": "email",
+              "type": "token"
+            },
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "valueCode": "MAY"
+                }
+              ],
+              "name": "phone",
+              "type": "token"
+            }
+          ]
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+              "valueCode": "MAY"
+            }
+          ],
+          "type": "RelatedPerson",
+          "profile": "https://fhir.nhs.uk/England/StructureDefinition/RelatedPerson",
+          "documentation": "API present in \n - [Personal Demographics Service FHIR API](https://digital.nhs.uk/developer/api-catalogue/personal-demographics-service-fhir) \n -  Proxy.  \n\n No [UK Core FHIR Access](https://build.fhir.org/ig/HL7-UK/UK-Core-Access/index.html) conformance requirements)",
+          "interaction": [
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "valueCode": "SHOULD"
+                }
+              ],
+              "code": "search-type"
+            }
+          ],
+          "searchInclude": [
+            "RelatedPerson:patient"
+          ],
+          "searchParam": [
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "valueCode": "MAY"
+                }
+              ],
+              "name": "identifier",
+              "type": "token",
+              "documentation": "A search by NHS Number. Proxy query parameter and not supported on PDS"
+            },
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "valueCode": "MAY"
+                }
+              ],
+              "name": "patient:identifier",
+              "type": "token",
+              "documentation": "A search by NHS Number. Proxy uses query parameter and PDS uses path parameter"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
