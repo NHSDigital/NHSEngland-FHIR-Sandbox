@@ -1,7 +1,7 @@
 # NHS-England-FHIR-Examples
 This repository is maintained by [Interoperability Team](https://nhsd-confluence.digital.nhs.uk/pages/viewpage.action?spaceKey=IOPS&title=Interoperability+Standards). Any queries contact us via [email](interoperabilityteam@nhs.net).
 
-This repository will be used as an internal development environment (sandpit) for trialing ideas for FHIR Resources, IG layouts, validation issues, and first of types for the NHS England Programme Implementation Guides [Simplifier project](https://simplifier.net/NHS-England-Programme-Implementation-Guides/~guides). It does not contan any resources that can be implemented in anyway.
+This repository will be used as an internal development environment (sandpit) for trialing ideas for FHIR Resources, IG layouts, validation issues, and first of types for the Interoperability Standards Team. It does not contan any resources that can be implemented in anyway.
 
 
 ## CapabilityStatement
