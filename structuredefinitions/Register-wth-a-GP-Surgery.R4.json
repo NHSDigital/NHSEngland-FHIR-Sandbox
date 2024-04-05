@@ -1,0 +1,594 @@
+{
+  "resourceType": "Questionnaire",
+  "url": "https://fhir.nhs.uk/England/StructureDefinition/England-Questionnaire-RegisterGPSurgery",
+  "title": "Register wth a GP Surgery",
+  "status": "draft",
+  "description": "A FHIR Questionnaire created from https://digital.nhs.uk/services/register-with-a-gp-surgery-service/get-help-using-the-service/questions-asked",
+  "purpose": "To standardise the questions asked when registering for a GP Surgery within England",
+  "item": [
+    {
+      "item": [
+        {
+          "item": [
+            {
+              "type": "string",
+              "linkId": "2526886552536",
+              "text": "Title",
+              "required": true
+            },
+            {
+              "type": "string",
+              "linkId": "8025625545792",
+              "text": "given name",
+              "required": true,
+              "item": [
+                {
+                  "text": "includes both first name and any middle names",
+                  "type": "display",
+                  "linkId": "8025625545792_helpText",
+                  "extension": [
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                      "valueCodeableConcept": {
+                        "text": "Help-Button",
+                        "coding": [
+                          {
+                            "code": "help",
+                            "display": "Help-Button",
+                            "system": "http://hl7.org/fhir/questionnaire-item-control"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "string",
+              "linkId": "9205794395420",
+              "text": "family name",
+              "required": true,
+              "item": [
+                {
+                  "text": "also known as surname",
+                  "type": "display",
+                  "linkId": "9205794395420_helpText",
+                  "extension": [
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                      "valueCodeableConcept": {
+                        "text": "Help-Button",
+                        "coding": [
+                          {
+                            "code": "help",
+                            "display": "Help-Button",
+                            "system": "http://hl7.org/fhir/questionnaire-item-control"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "string",
+              "linkId": "5369283890405",
+              "text": "previous family names"
+            }
+          ],
+          "type": "group",
+          "linkId": "2673545464189",
+          "prefix": "1",
+          "text": "What is your name"
+        },
+        {
+          "type": "date",
+          "linkId": "5721234742686",
+          "text": "What is your Date of Birth",
+          "required": true
+        },
+        {
+          "item": [
+            {
+              "type": "integer",
+              "linkId": "7450549676323",
+              "text": "What is your NHS number",
+              "enableWhen": [
+                {
+                  "question": "2535971200955",
+                  "operator": "=",
+                  "answerCoding": {
+                    "system": "http://terminology.hl7.org/CodeSystem/v2-0532",
+                    "code": "Y",
+                    "display": "Yes"
+                  }
+                }
+              ],
+              "enableBehavior": "any"
+            }
+          ],
+          "type": "choice",
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "system": "http://hl7.org/fhir/questionnaire-item-control",
+                    "code": "radio-button",
+                    "display": "Radio Button"
+                  }
+                ]
+              }
+            }
+          ],
+          "linkId": "2535971200955",
+          "text": "Do you know your NHS Number",
+          "required": true,
+          "answerOption": [
+            {
+              "valueCoding": {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0532",
+                "code": "Y",
+                "display": "Yes"
+              }
+            },
+            {
+              "valueCoding": {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0532",
+                "code": "N",
+                "display": "No"
+              }
+            }
+          ]
+        },
+        {
+          "type": "choice",
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "system": "http://hl7.org/fhir/questionnaire-item-control",
+                    "code": "radio-button",
+                    "display": "Radio Button"
+                  }
+                ]
+              }
+            }
+          ],
+          "linkId": "6043124139100",
+          "text": "Are you registering with a UK GP for the first time",
+          "answerValueSet": "http://terminology.hl7.org/CodeSystem/v2-0532"
+        },
+        {
+          "type": "choice",
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "system": "http://hl7.org/fhir/questionnaire-item-control",
+                    "code": "radio-button",
+                    "display": "Radio Button"
+                  }
+                ]
+              }
+            }
+          ],
+          "linkId": "7570130246483",
+          "text": "Do you have a current UK address",
+          "answerOption": [
+            {
+              "valueCoding": {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0532",
+                "code": "Y",
+                "display": "Yes"
+              }
+            },
+            {
+              "valueCoding": {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0532",
+                "code": "N",
+                "display": "No"
+              }
+            }
+          ]
+        },
+        {
+          "item": [
+            {
+              "item": [
+                {
+                  "type": "string",
+                  "linkId": "7091443873030",
+                  "text": "house name / number"
+                },
+                {
+                  "type": "string",
+                  "linkId": "8052908008533",
+                  "text": "street"
+                },
+                {
+                  "type": "string",
+                  "linkId": "9119357682451",
+                  "text": "town / city"
+                },
+                {
+                  "type": "string",
+                  "linkId": "7441165310859",
+                  "text": "County / State"
+                },
+                {
+                  "type": "string",
+                  "linkId": "714488228729",
+                  "text": "Country"
+                },
+                {
+                  "type": "string",
+                  "linkId": "5086068712017",
+                  "text": "postcode"
+                }
+              ],
+              "type": "group",
+              "linkId": "3834031732678",
+              "text": "Address"
+            },
+            {
+              "type": "string",
+              "linkId": "5425785344304",
+              "text": "Home phone"
+            },
+            {
+              "type": "string",
+              "linkId": "8530163235785",
+              "text": "Mobile phone"
+            },
+            {
+              "type": "string",
+              "linkId": "7870443952741",
+              "text": "Email address"
+            }
+          ],
+          "type": "group",
+          "linkId": "8454185457892",
+          "text": "What are your Contact Detals"
+        },
+        {
+          "type": "string",
+          "linkId": "3509733064094",
+          "text": "What is your sex as recorded on your NHS record? (female, intersex, male, not specified or known) "
+        },
+        {
+          "type": "string",
+          "linkId": "1651487045545",
+          "text": "Where were you born? "
+        },
+        {
+          "type": "string",
+          "linkId": "4800938448822",
+          "text": "What is your ethnic group? "
+        },
+        {
+          "type": "string",
+          "linkId": "3434094779174",
+          "text": "What is your ethnic background?"
+        },
+        {
+          "type": "string",
+          "linkId": "9558300594974",
+          "text": "Do you need a language interpreter?",
+          "item": [
+            {
+              "type": "string",
+              "linkId": "1841983710357",
+              "text": "Which language do you need an interpreter for? (includes British Sign Language) "
+            }
+          ]
+        },
+        {
+          "type": "string",
+          "linkId": "9752786999975",
+          "text": "Would you like to choose or change a pharmacy for your prescriptions?"
+        },
+        {
+          "type": "string",
+          "linkId": "3094394035878",
+          "text": "Have you ever been a member of the UK Armed Forces or are a family member registered with the Defence Medical Services? "
+        },
+        {
+          "item": [
+            {
+              "type": "string",
+              "linkId": "2504251541565",
+              "text": "What are the details of your emergency contact?"
+            }
+          ],
+          "type": "string",
+          "linkId": "9420407152267",
+          "text": "Do you have an emergency contact? "
+        },
+        {
+          "type": "string",
+          "linkId": "7951535385611",
+          "text": "Are you returning from overseas?"
+        }
+      ],
+      "type": "group",
+      "linkId": "3099707112786",
+      "text": "Mandatory Patient Demographic Questions"
+    },
+    {
+      "item": [
+        {
+          "type": "string",
+          "linkId": "6562566176631",
+          "text": "Do you have any existing or pre-existing medical conditions? "
+        },
+        {
+          "type": "string",
+          "linkId": "6142346747594",
+          "text": "Do you have any allergies?"
+        },
+        {
+          "type": "string",
+          "linkId": "6396554185648",
+          "text": "Do you have any mental health conditions?"
+        },
+        {
+          "type": "string",
+          "linkId": "4702985370646",
+          "text": "Do you have any disabilities? "
+        },
+        {
+          "type": "string",
+          "linkId": "8295392298267",
+          "text": "Do you have a carer?"
+        },
+        {
+          "type": "string",
+          "linkId": "2716331756046",
+          "text": "Are you a carer?"
+        },
+        {
+          "type": "string",
+          "linkId": "9937009784866",
+          "text": "Do you or your carer need to be communicated with in an accessible form?"
+        },
+        {
+          "type": "string",
+          "linkId": "8641971664330",
+          "text": "Do you or your carer need any reasonable adjustments to make your visit to the GP surgery accessible?"
+        },
+        {
+          "type": "string",
+          "linkId": "3663339285400",
+          "text": "Do you currently take any prescription medication?",
+          "item": [
+            {
+              "item": [
+                {
+                  "type": "string",
+                  "linkId": "6072247538193",
+                  "text": "Prescription Dose"
+                },
+                {
+                  "type": "string",
+                  "linkId": "3720686293660",
+                  "text": "Is this a repeat prescription?"
+                }
+              ],
+              "type": "string",
+              "linkId": "3351293631367",
+              "text": "Prescription medicine name",
+              "repeats": true
+            }
+          ]
+        },
+        {
+          "type": "string",
+          "linkId": "6402543436632",
+          "text": "What is your height?"
+        },
+        {
+          "type": "string",
+          "linkId": "3301301896866",
+          "text": "What is your weight?"
+        },
+        {
+          "type": "string",
+          "linkId": "2141293065983",
+          "text": "How often do you drink alcohol or have a drink containing alcohol?"
+        },
+        {
+          "type": "string",
+          "linkId": "9335384644242",
+          "text": "How many units of alcohol do you drink on a typical day when you are drinking?"
+        },
+        {
+          "type": "string",
+          "linkId": "31954461608",
+          "text": "How often have you had six or more units of alcohol on a single occasion in the last year?"
+        },
+        {
+          "type": "string",
+          "linkId": "2254100394705",
+          "text": "Have you ever smoked?"
+        },
+        {
+          "type": "string",
+          "linkId": "4270314232487",
+          "text": "Do you want important information from your GP record to be available to other health and care professionals?"
+        }
+      ],
+      "type": "group",
+      "linkId": "7105669556528",
+      "text": "Optional Health Questions"
+    },
+    {
+      "type": "group",
+      "linkId": "8087948177397",
+      "text": "Patients transferring from another GP surgery in England",
+      "item": [
+        {
+          "type": "string",
+          "linkId": "7359582925710",
+          "text": "Enter details of where you were born"
+        },
+        {
+          "type": "string",
+          "linkId": "8662493008012",
+          "text": "What is the name of the GP surgery you want to leave?"
+        },
+        {
+          "type": "string",
+          "linkId": "4311317327224",
+          "text": "What was your previous UK address?"
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "linkId": "7403981923359",
+      "text": "UK citizens returning from living abroad",
+      "item": [
+        {
+          "type": "string",
+          "linkId": "6157624002669",
+          "text": "Are you returning from overseas?"
+        },
+        {
+          "type": "string",
+          "linkId": "3414417437859",
+          "text": "What was the date you left the UK?"
+        },
+        {
+          "type": "string",
+          "linkId": "3192646241719",
+          "text": "What was the date you returned to the UK? "
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "linkId": "630742013280",
+      "text": "Patients who are moving to the UK and registering for the first time ",
+      "item": [
+        {
+          "type": "string",
+          "linkId": "5249967964026",
+          "text": "When did you enter the UK?"
+        },
+        {
+          "type": "string",
+          "linkId": "291105241223",
+          "text": "Have you moved to the UK from EU, EEA or Switzerland?"
+        },
+        {
+          "type": "string",
+          "linkId": "4739595792362",
+          "text": "Do you have any of these documents? (EHIC, S1)"
+        },
+        {
+          "type": "string",
+          "linkId": "4706161080171",
+          "text": "European health insurance card details "
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "linkId": "5564099927552",
+      "text": "If the person is completing the form on behalf of someone else",
+      "item": [
+        {
+          "type": "string",
+          "linkId": "4757609108297",
+          "text": "What is your relationship to the person being registered? (parent or guardian, carer, other) "
+        },
+        {
+          "type": "string",
+          "linkId": "1296573860711",
+          "text": "What type of carer are you? (young carer, paid as a job, unpaid but may get benefits, foster carer, none of the above) "
+        },
+        {
+          "type": "string",
+          "linkId": "3745453882893",
+          "text": "What are your details? (name, relationship, contact number)"
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "linkId": "1228593886419",
+      "text": "Children and young people",
+      "item": [
+        {
+          "item": [
+            {
+              "type": "string",
+              "linkId": "9351831383931",
+              "text": "Where was the child born? "
+            },
+            {
+              "type": "string",
+              "linkId": "9469448662963",
+              "text": "Enter the postcode where the mother of the child was living when their baby was born"
+            }
+          ],
+          "type": "group",
+          "linkId": "5938913659901",
+          "text": "If the patient is less than 12 months old: "
+        },
+        {
+          "type": "string",
+          "linkId": "535628037085",
+          "text": "If the patient is less than 18 years old:",
+          "item": [
+            {
+              "type": "string",
+              "linkId": "2866394887568",
+              "text": "Does the child go to any of the following for their education?"
+            },
+            {
+              "type": "string",
+              "linkId": "8038290939807",
+              "text": "Is anyone else involved in the child's care?"
+            },
+            {
+              "type": "string",
+              "linkId": "5998395092069",
+              "text": "Has the child had all their routine vaccinations?"
+            },
+            {
+              "type": "string",
+              "linkId": "1302132314515",
+              "text": "Did the child get all their routine vaccinations in the UK?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "string",
+      "linkId": "5319955577563",
+      "text": "Choose a pharmacy if offered by practice",
+      "item": [
+        {
+          "type": "string",
+          "linkId": "1224857833601",
+          "text": "Do you live more than 1 mile from your nearest pharmacy?"
+        },
+        {
+          "type": "string",
+          "linkId": "4107477375862",
+          "text": "Would you have serious difficulty getting to your nearest pharmacy?"
+        }
+      ]
+    }
+  ]
+}
