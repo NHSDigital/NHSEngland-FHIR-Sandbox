@@ -9,6 +9,141 @@
     {
       "item": [
         {
+          "type": "choice",
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "system": "http://hl7.org/fhir/questionnaire-item-control",
+                    "code": "drop-down",
+                    "display": "Drop down"
+                  }
+                ]
+              }
+            }
+          ],
+          "linkId": "4757609108297",
+          "text": "What is your relationship to the person being registered? (parent or guardian, carer, other) ",
+          "enableWhen": [
+            {
+              "question": "5564099927552",
+              "operator": "=",
+              "answerCoding": {
+                "code": "Y",
+                "display": "Yes"
+              }
+            }
+          ]
+        },
+        {
+          "type": "choice",
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "system": "http://hl7.org/fhir/questionnaire-item-control",
+                    "code": "drop-down",
+                    "display": "Drop down"
+                  }
+                ]
+              }
+            }
+          ],
+          "linkId": "1296573860711",
+          "text": "What type of carer are you? (young carer, paid as a job, unpaid but may get benefits, foster carer, none of the above) ",
+          "enableWhen": [
+            {
+              "question": "5564099927552",
+              "operator": "=",
+              "answerCoding": {
+                "code": "Y",
+                "display": "Yes"
+              }
+            }
+          ]
+        },
+        {
+          "item": [
+            {
+              "type": "string",
+              "linkId": "4381387676785",
+              "text": "Title",
+              "required": true
+            },
+            {
+              "type": "string",
+              "linkId": "4823446188940",
+              "text": "Given name",
+              "required": true
+            },
+            {
+              "type": "string",
+              "linkId": "3525030744831",
+              "text": "Family name",
+              "required": true
+            },
+            {
+              "type": "string",
+              "linkId": "9015495695743",
+              "text": "Previous family name",
+              "required": true
+            }
+          ],
+          "type": "string",
+          "linkId": "3745453882893",
+          "text": "What are your details? (name, relationship, contact number)",
+          "enableWhen": [
+            {
+              "question": "5564099927552",
+              "operator": "=",
+              "answerCoding": {
+                "code": "Y",
+                "display": "Yes"
+              }
+            }
+          ]
+        }
+      ],
+      "type": "choice",
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/questionnaire-item-control",
+                "code": "radio-button",
+                "display": "Radio Button"
+              }
+            ]
+          }
+        }
+      ],
+      "linkId": "5564099927552",
+      "text": "Are you completing the form on behalf of someone else?",
+      "required": true,
+      "answerOption": [
+        {
+          "valueCoding": {
+            "code": "Y",
+            "display": "Yes"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "N",
+            "display": "No"
+          }
+        }
+      ]
+    },
+    {
+      "item": [
+        {
           "item": [
             {
               "type": "string",
@@ -81,13 +216,285 @@
           "type": "group",
           "linkId": "2673545464189",
           "prefix": "1",
-          "text": "What is your name"
+          "text": "What is the name of the person being registered?"
         },
         {
           "type": "date",
           "linkId": "5721234742686",
           "text": "What is your Date of Birth",
           "required": true
+        },
+        {
+          "item": [
+            {
+              "item": [
+                {
+                  "type": "string",
+                  "linkId": "9351831383931",
+                  "text": "Where was the child born? ",
+                  "enableWhen": [
+                    {
+                      "question": "5938913659901",
+                      "operator": "=",
+                      "answerCoding": {
+                        "code": "Y",
+                        "display": "Yes"
+                      }
+                    }
+                  ],
+                  "required": true
+                },
+                {
+                  "type": "string",
+                  "linkId": "9469448662963",
+                  "text": "Enter the postcode where the mother of the child was living when their baby was born",
+                  "enableWhen": [
+                    {
+                      "question": "5938913659901",
+                      "operator": "=",
+                      "answerCoding": {
+                        "code": "Y",
+                        "display": "Yes"
+                      }
+                    }
+                  ],
+                  "required": true
+                }
+              ],
+              "type": "choice",
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/questionnaire-item-control",
+                        "code": "drop-down",
+                        "display": "Drop down"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "linkId": "5938913659901",
+              "text": "Is the patient less than 12 months old?",
+              "answerOption": [
+                {
+                  "valueCoding": {
+                    "code": "Y",
+                    "display": "Yes"
+                  }
+                },
+                {
+                  "valueCoding": {
+                    "code": "N",
+                    "display": "No"
+                  }
+                }
+              ]
+            },
+            {
+              "item": [
+                {
+                  "type": "string",
+                  "linkId": "2866394887568",
+                  "text": "Does the child go to any of the following for their education?",
+                  "enableWhen": [
+                    {
+                      "question": "535628037085",
+                      "operator": "=",
+                      "answerCoding": {
+                        "code": "Y",
+                        "display": "Yes"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "choice",
+                  "extension": [
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                      "valueCodeableConcept": {
+                        "coding": [
+                          {
+                            "system": "http://hl7.org/fhir/questionnaire-item-control",
+                            "code": "drop-down",
+                            "display": "Drop down"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "linkId": "8038290939807",
+                  "text": "Is anyone else involved in the child's care?",
+                  "enableWhen": [
+                    {
+                      "question": "535628037085",
+                      "operator": "=",
+                      "answerCoding": {
+                        "code": "Y",
+                        "display": "Yes"
+                      }
+                    }
+                  ],
+                  "required": true,
+                  "answerOption": [
+                    {
+                      "valueCoding": {
+                        "code": "Y",
+                        "display": "Yes"
+                      }
+                    },
+                    {
+                      "valueCoding": {
+                        "code": "N",
+                        "display": "No"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "choice",
+                  "extension": [
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                      "valueCodeableConcept": {
+                        "coding": [
+                          {
+                            "system": "http://hl7.org/fhir/questionnaire-item-control",
+                            "code": "drop-down",
+                            "display": "Drop down"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "linkId": "5998395092069",
+                  "text": "Has the child had all their routine vaccinations?",
+                  "enableWhen": [
+                    {
+                      "question": "535628037085",
+                      "operator": "=",
+                      "answerCoding": {
+                        "code": "Y",
+                        "display": "Yes"
+                      }
+                    }
+                  ],
+                  "required": true,
+                  "answerOption": [
+                    {
+                      "valueCoding": {
+                        "code": "Y",
+                        "display": "Yes"
+                      }
+                    },
+                    {
+                      "valueCoding": {
+                        "code": "N",
+                        "display": "No"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "choice",
+                  "extension": [
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                      "valueCodeableConcept": {
+                        "coding": [
+                          {
+                            "system": "http://hl7.org/fhir/questionnaire-item-control",
+                            "code": "drop-down",
+                            "display": "Drop down"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "linkId": "1302132314515",
+                  "text": "Did the child get all their routine vaccinations in the UK?",
+                  "enableWhen": [
+                    {
+                      "question": "535628037085",
+                      "operator": "=",
+                      "answerCoding": {
+                        "code": "Y",
+                        "display": "Yes"
+                      }
+                    }
+                  ],
+                  "required": true,
+                  "answerOption": [
+                    {
+                      "valueCoding": {
+                        "code": "Y",
+                        "display": "Yes"
+                      }
+                    },
+                    {
+                      "valueCoding": {
+                        "code": "N",
+                        "display": "No"
+                      }
+                    },
+                    {
+                      "valueCoding": {
+                        "code": "U",
+                        "display": "Unknown"
+                      }
+                    }
+                  ]
+                }
+              ],
+              "type": "choice",
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/questionnaire-item-control",
+                        "code": "drop-down",
+                        "display": "Drop down"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "linkId": "535628037085",
+              "text": "Is the patient less than 18 years old?",
+              "enableWhen": [
+                {
+                  "question": "5938913659901",
+                  "operator": "=",
+                  "answerCoding": {
+                    "code": "N",
+                    "display": "No"
+                  }
+                }
+              ],
+              "answerOption": [
+                {
+                  "valueCoding": {
+                    "code": "Y",
+                    "display": "Yes"
+                  }
+                },
+                {
+                  "valueCoding": {
+                    "code": "N",
+                    "display": "No"
+                  }
+                }
+              ]
+            }
+          ],
+          "type": "group",
+          "linkId": "1228593886419",
+          "text": "Children and young people"
         },
         {
           "item": [
@@ -106,7 +513,8 @@
                   }
                 }
               ],
-              "enableBehavior": "any"
+              "enableBehavior": "any",
+              "required": true
             }
           ],
           "type": "choice",
@@ -162,7 +570,52 @@
           ],
           "linkId": "6043124139100",
           "text": "Are you registering with a UK GP for the first time",
-          "answerValueSet": "http://terminology.hl7.org/CodeSystem/v2-0532"
+          "answerOption": [
+            {
+              "valueCoding": {
+                "code": "Y",
+                "display": "Yes"
+              }
+            },
+            {
+              "valueCoding": {
+                "code": "N",
+                "display": "No"
+              }
+            }
+          ]
+        },
+        {
+          "item": [
+            {
+              "type": "string",
+              "linkId": "7359582925710",
+              "text": "Enter details of where you were born"
+            },
+            {
+              "type": "string",
+              "linkId": "8662493008012",
+              "text": "What is the name of the GP surgery you want to leave?"
+            },
+            {
+              "type": "string",
+              "linkId": "4311317327224",
+              "text": "What was your previous UK address?"
+            }
+          ],
+          "type": "group",
+          "linkId": "8087948177397",
+          "text": "Patients transferring from another GP surgery in England",
+          "enableWhen": [
+            {
+              "question": "6043124139100",
+              "operator": "=",
+              "answerCoding": {
+                "code": "N",
+                "display": "No"
+              }
+            }
+          ]
         },
         {
           "type": "choice",
@@ -269,6 +722,117 @@
           "text": "Where were you born? "
         },
         {
+          "item": [
+            {
+              "type": "date",
+              "linkId": "5249967964026",
+              "text": "When did you enter the UK?"
+            },
+            {
+              "type": "choice",
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/questionnaire-item-control",
+                        "code": "drop-down",
+                        "display": "Drop down"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "linkId": "291105241223",
+              "text": "Have you moved to the UK from EU, EEA or Switzerland?",
+              "answerOption": [
+                {
+                  "valueCoding": {
+                    "code": "Y",
+                    "display": "Yes"
+                  }
+                },
+                {
+                  "valueCoding": {
+                    "code": "N",
+                    "display": "No"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "choice",
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/questionnaire-item-control",
+                        "code": "drop-down",
+                        "display": "Drop down"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "linkId": "4739595792362",
+              "text": "Do you have any of these documents? (EHIC, S1)",
+              "answerOption": [
+                {
+                  "valueCoding": {
+                    "code": "Y",
+                    "display": "Yes"
+                  }
+                },
+                {
+                  "valueCoding": {
+                    "code": "N",
+                    "display": "No"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "string",
+              "linkId": "4706161080171",
+              "text": "European health insurance card details "
+            }
+          ],
+          "type": "choice",
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "system": "http://hl7.org/fhir/questionnaire-item-control",
+                    "code": "drop-down",
+                    "display": "Drop down"
+                  }
+                ]
+              }
+            }
+          ],
+          "linkId": "630742013280",
+          "text": "Is the patient moving to the UK, or have moved to the UK,  and registering for the first time?",
+          "answerOption": [
+            {
+              "valueCoding": {
+                "code": "Y",
+                "display": "Yes"
+              }
+            },
+            {
+              "valueCoding": {
+                "code": "N",
+                "display": "No"
+              }
+            }
+          ]
+        },
+        {
           "type": "string",
           "linkId": "4800938448822",
           "text": "What is your ethnic group? "
@@ -316,11 +880,50 @@
           "type": "string",
           "linkId": "7951535385611",
           "text": "Are you returning from overseas?"
+        },
+        {
+          "item": [
+            {
+              "type": "string",
+              "linkId": "6157624002669",
+              "text": "Are you returning from overseas?"
+            },
+            {
+              "type": "string",
+              "linkId": "3414417437859",
+              "text": "What was the date you left the UK?"
+            },
+            {
+              "type": "string",
+              "linkId": "3192646241719",
+              "text": "What was the date you returned to the UK? "
+            }
+          ],
+          "type": "group",
+          "linkId": "7403981923359",
+          "text": "UK citizens returning from living abroad"
+        },
+        {
+          "item": [
+            {
+              "type": "string",
+              "linkId": "1224857833601",
+              "text": "Do you live more than 1 mile from your nearest pharmacy?"
+            },
+            {
+              "type": "string",
+              "linkId": "4107477375862",
+              "text": "Would you have serious difficulty getting to your nearest pharmacy?"
+            }
+          ],
+          "type": "string",
+          "linkId": "5319955577563",
+          "text": "Choose a pharmacy if offered by practice"
         }
       ],
       "type": "group",
       "linkId": "3099707112786",
-      "text": "Mandatory Patient Demographic Questions"
+      "text": "Patient Demographic Questions"
     },
     {
       "item": [
@@ -428,167 +1031,6 @@
       "type": "group",
       "linkId": "7105669556528",
       "text": "Optional Health Questions"
-    },
-    {
-      "type": "group",
-      "linkId": "8087948177397",
-      "text": "Patients transferring from another GP surgery in England",
-      "item": [
-        {
-          "type": "string",
-          "linkId": "7359582925710",
-          "text": "Enter details of where you were born"
-        },
-        {
-          "type": "string",
-          "linkId": "8662493008012",
-          "text": "What is the name of the GP surgery you want to leave?"
-        },
-        {
-          "type": "string",
-          "linkId": "4311317327224",
-          "text": "What was your previous UK address?"
-        }
-      ]
-    },
-    {
-      "type": "group",
-      "linkId": "7403981923359",
-      "text": "UK citizens returning from living abroad",
-      "item": [
-        {
-          "type": "string",
-          "linkId": "6157624002669",
-          "text": "Are you returning from overseas?"
-        },
-        {
-          "type": "string",
-          "linkId": "3414417437859",
-          "text": "What was the date you left the UK?"
-        },
-        {
-          "type": "string",
-          "linkId": "3192646241719",
-          "text": "What was the date you returned to the UK? "
-        }
-      ]
-    },
-    {
-      "type": "group",
-      "linkId": "630742013280",
-      "text": "Patients who are moving to the UK and registering for the first time ",
-      "item": [
-        {
-          "type": "string",
-          "linkId": "5249967964026",
-          "text": "When did you enter the UK?"
-        },
-        {
-          "type": "string",
-          "linkId": "291105241223",
-          "text": "Have you moved to the UK from EU, EEA or Switzerland?"
-        },
-        {
-          "type": "string",
-          "linkId": "4739595792362",
-          "text": "Do you have any of these documents? (EHIC, S1)"
-        },
-        {
-          "type": "string",
-          "linkId": "4706161080171",
-          "text": "European health insurance card details "
-        }
-      ]
-    },
-    {
-      "type": "group",
-      "linkId": "5564099927552",
-      "text": "If the person is completing the form on behalf of someone else",
-      "item": [
-        {
-          "type": "string",
-          "linkId": "4757609108297",
-          "text": "What is your relationship to the person being registered? (parent or guardian, carer, other) "
-        },
-        {
-          "type": "string",
-          "linkId": "1296573860711",
-          "text": "What type of carer are you? (young carer, paid as a job, unpaid but may get benefits, foster carer, none of the above) "
-        },
-        {
-          "type": "string",
-          "linkId": "3745453882893",
-          "text": "What are your details? (name, relationship, contact number)"
-        }
-      ]
-    },
-    {
-      "type": "group",
-      "linkId": "1228593886419",
-      "text": "Children and young people",
-      "item": [
-        {
-          "item": [
-            {
-              "type": "string",
-              "linkId": "9351831383931",
-              "text": "Where was the child born? "
-            },
-            {
-              "type": "string",
-              "linkId": "9469448662963",
-              "text": "Enter the postcode where the mother of the child was living when their baby was born"
-            }
-          ],
-          "type": "group",
-          "linkId": "5938913659901",
-          "text": "If the patient is less than 12 months old: "
-        },
-        {
-          "type": "string",
-          "linkId": "535628037085",
-          "text": "If the patient is less than 18 years old:",
-          "item": [
-            {
-              "type": "string",
-              "linkId": "2866394887568",
-              "text": "Does the child go to any of the following for their education?"
-            },
-            {
-              "type": "string",
-              "linkId": "8038290939807",
-              "text": "Is anyone else involved in the child's care?"
-            },
-            {
-              "type": "string",
-              "linkId": "5998395092069",
-              "text": "Has the child had all their routine vaccinations?"
-            },
-            {
-              "type": "string",
-              "linkId": "1302132314515",
-              "text": "Did the child get all their routine vaccinations in the UK?"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "string",
-      "linkId": "5319955577563",
-      "text": "Choose a pharmacy if offered by practice",
-      "item": [
-        {
-          "type": "string",
-          "linkId": "1224857833601",
-          "text": "Do you live more than 1 mile from your nearest pharmacy?"
-        },
-        {
-          "type": "string",
-          "linkId": "4107477375862",
-          "text": "Would you have serious difficulty getting to your nearest pharmacy?"
-        }
-      ]
     }
   ]
 }
