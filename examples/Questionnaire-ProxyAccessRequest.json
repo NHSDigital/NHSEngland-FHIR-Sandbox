@@ -1,0 +1,206 @@
+{
+  "resourceType": "Questionnaire",
+  "url": "https://fhir.nhs.uk/England/Questionnaire/Consent",
+  "name": "Consent",
+  "title": "Proxy Access Request",
+  "status": "draft",
+  "subjectType": [
+    "RelatedPerson"
+  ],
+  "description": "A form to share access to health and care services with someone else.",
+  "purpose": "Add someone to your NHS account",
+  "item": [
+    {
+      "item": [
+        {
+          "type": "string",
+          "maxLength": 10,
+          "linkId": "proxy_details_nhs_number",
+          "text": "NHS Number",
+          "definition": "http://hl7.org/fhir/StructureDefinition/RelatedPerson#identifier",
+          "required": true,
+          "readOnly": false
+        },
+        {
+          "type": "choice",
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "system": "http://hl7.org/fhir/questionnaire-item-control",
+                    "code": "drop-down",
+                    "display": "Drop down"
+                  }
+                ]
+              }
+            }
+          ],
+          "linkId": "proxy_details_relationship",
+          "text": "Relationship",
+          "definition": "http://hl7.org/fhir/StructureDefinition/RelatedPerson#relationship",
+          "required": true,
+          "repeats": false,
+          "readOnly": false,
+          "answerOption": [
+            {
+              "valueCoding": {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+                "code": "PRN",
+                "display": "Parent"
+              }
+            },
+            {
+              "valueCoding": {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+                "code": "_PersonalRelationshipRoleType",
+                "display": "Personal relationship with the patient"
+              }
+            },
+            {
+              "valueCoding": {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+                "code": "HPOWATT",
+                "display": "Healthcare power of attorney"
+              }
+            },
+            {
+              "valueCoding": {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+                "code": "DPOWATT",
+                "display": "Durable power of attorney"
+              }
+            },
+            {
+              "valueCoding": {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+                "code": "GUARD",
+                "display": "Guardian"
+              }
+            }
+          ]
+        }
+      ],
+      "type": "group",
+      "linkId": "proxy_details",
+      "text": "Proxy details",
+      "required": true,
+      "readOnly": true
+    },
+    {
+      "item": [
+        {
+          "type": "string",
+          "maxLength": 10,
+          "linkId": "nhs_number",
+          "text": "NHS Number",
+          "definition": "http://hl7.org/fhir/StructureDefinition/Patient#identifier",
+          "required": true,
+          "repeats": false,
+          "readOnly": false
+        },
+        {
+          "type": "string",
+          "linkId": "first_name",
+          "text": "First Name",
+          "definition": "http://hl7.org/fhir/StructureDefinition/Patient#name.given",
+          "required": false,
+          "repeats": false,
+          "readOnly": false
+        },
+        {
+          "type": "string",
+          "linkId": "last-name",
+          "text": "Last name",
+          "definition": "http://hl7.org/fhir/StructureDefinition/Patient#name.family",
+          "required": false,
+          "repeats": false,
+          "readOnly": false
+        },
+        {
+          "type": "date",
+          "linkId": "date_of_birth",
+          "text": "Date of Birth",
+          "definition": "http://hl7.org/fhir/StructureDefinition/Patient#birthDate",
+          "required": false,
+          "repeats": false,
+          "readOnly": false
+        },
+        {
+          "type": "string",
+          "linkId": "postcode",
+          "text": "Postcode",
+          "definition": "http://hl7.org/fhir/StructureDefinition/Patient#address.postalCode",
+          "required": false,
+          "repeats": false,
+          "readOnly": false
+        }
+      ],
+      "type": "group",
+      "linkId": "patient_details",
+      "text": "Patient details"
+    },
+    {
+      "type": "string",
+      "linkId": "lpa_access_code",
+      "text": "LPA access code",
+      "definition": "http://hl7.org/fhir/StructureDefinition/Consent#policy",
+      "required": false,
+      "repeats": false
+    },
+    {
+      "type": "choice",
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/questionnaire-item-control",
+                "code": "drop-down",
+                "display": "Drop down"
+              }
+            ]
+          }
+        }
+      ],
+      "linkId": "requested_services",
+      "text": "Requested services",
+      "definition": "http://hl7.org/fhir/StructureDefinition/Consent#provision.class",
+      "required": true,
+      "repeats": true,
+      "readOnly": false,
+      "answerOption": [
+        {
+          "valueCoding": {
+            "system": "https://fhir.nhs.uk/England/CodeSystem/consentaction",
+            "code": "appointments",
+            "display": "manage appointments"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "https://fhir.nhs.uk/England/CodeSystem/consentaction",
+            "code": "medicines",
+            "display": "manage medicines"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "https://fhir.nhs.uk/England/CodeSystem/consentaction",
+            "code": "records",
+            "display": "access medical records"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "https://fhir.nhs.uk/England/CodeSystem/consentaction",
+            "code": "demographics",
+            "display": "manage demographics and contact details"
+          }
+        }
+      ]
+    }
+  ]
+}
