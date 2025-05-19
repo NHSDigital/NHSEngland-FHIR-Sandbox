@@ -4,7 +4,8 @@
   "author": "nhsengland",
   "dependencies": {
     "hl7.fhir.r4.core": "4.0.1",
-    "fhir.r4.nhsengland.stu1": "1.1.0"
+    "fhir.r4.nhsengland.stu1": "1.1.0",
+    "hl7.fhir.eu.laboratory": "0.1.1"
   },
   "fhirVersions": [
     "4.0.1"
